@@ -1,5 +1,9 @@
 > For education purpuses only
 > There is no real hacking! Only Observing and ReverseEngineering a PCB I bought.
+
+## Reverse Engineering
+RE can be found in `ReverseEngineering.md`
+
 ## Building on linux (Specifically Fedora 43 KDE)
 
 1. Setup Microchips [MPLAB into VS code](https://www.microchip.com/en-us/tools-resources/develop/mplab-tools-vs-code)
