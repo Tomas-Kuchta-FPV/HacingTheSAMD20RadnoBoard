@@ -1,0 +1,47 @@
+{
+    "version": "1.9",
+    "configurations": [
+        {
+            "name": "default",
+            "id": "conf1",
+            "device": "ATSAMD20G18",
+            "imagePath": "./out/HTSAMD20RB-Blinky/default.elf",
+            "packs": [
+                {
+                    "name": "SAMD20_DFP",
+                    "vendor": "Microchip",
+                    "version": "3.7.231"
+                },
+                {
+                    "name": "CMSIS",
+                    "vendor": "ARM",
+                    "version": "6.3.0"
+                }
+            ],
+            "fileSet": "default",
+            "toolchain": "default-ARM-GCC"
+        }
+    ],
+    "propertyGroups": [
+        {
+            "name": "default-ARM-GCC",
+            "type": "toolchain",
+            "provider": "microchip.toolchains:arm-gcc@14.2.1",
+            "properties": {}
+        }
+    ],
+    "fileSets": [
+        {
+            "name": "default",
+            "files": [
+                {
+                    "include": "**/*",
+                    "exclude": [
+                        "**/@(build|_build|out|cmake|.vscode)/**/*",
+                        "samd20g18_sram.ld"
+                    ]
+                }
+            ]
+        }
+    ]
+}
