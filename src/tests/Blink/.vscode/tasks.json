@@ -11,7 +11,7 @@
         "-f",
         "target/at91samdXX.cfg",
         "-c",
-        "program ${workspaceFolder}/out/HTSAMD20RB-Blinky/default.elf verify reset exit"
+        "program ${workspaceFolder}/out/HTSAMD20RB-Blinky_LowLevel/default.elf verify reset exit"
       ],
       "options": {
         "cwd": "${workspaceFolder}"

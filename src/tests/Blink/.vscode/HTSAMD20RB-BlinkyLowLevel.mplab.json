@@ -5,7 +5,7 @@
             "name": "default",
             "id": "conf1",
             "device": "ATSAMD20G18",
-            "imagePath": "./out/HTSAMD20RB-Blinky/default.elf",
+            "imagePath": "./out/HTSAMD20RB-Blinky_LowLevel/default.elf",
             "packs": [
                 {
                     "name": "SAMD20_DFP",

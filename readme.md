@@ -6,6 +6,8 @@ RE can be found in `ReverseEngineering.md`
 
 ## Building on linux (Specifically Fedora 43 KDE)
 
+### With VS code and MPLAB extension
+
 1. Setup Microchips [MPLAB into VS code](https://www.microchip.com/en-us/tools-resources/develop/mplab-tools-vs-code)
 2. Open or Create a new project
 3. Install [JTAGprobe](https://github.com/lonehog/JTAGprobe) on yout raspberry pi pico

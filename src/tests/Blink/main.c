@@ -2,7 +2,7 @@
  * @file main.c
  * @author tomas
  * @date 2026-05-13
- * @brief Blink LED on PB22 for ATSAMD20G18
+ * @brief Low Level Blink LED on PB22 for ATSAMD20G18
  */
 
 #include <stdint.h>

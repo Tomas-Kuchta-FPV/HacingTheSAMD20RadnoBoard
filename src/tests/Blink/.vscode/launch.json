@@ -8,7 +8,7 @@
             "name": "Attach to OpenOCD GDB Server",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/out/HTSAMD20RB-Blinky/default.elf",
+            "program": "${workspaceFolder}/out/HTSAMD20RB-Blinky_LowLevel/default.elf",
             "miDebuggerPath": "/usr/bin/arm-none-eabi",
             "miDebuggerServerAddress": "localhost:3333",
             "cwd": "${workspaceFolder}",
