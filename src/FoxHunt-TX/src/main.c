@@ -194,7 +194,7 @@ int main ( void )
         send_nrf("FOXHUNT");
         SYSTICK_DelayMs(300);
         LED_Clear();
-        SYSTICK_DelayMs(1000);
+        SYSTICK_DelayMs(500);
     }
 
     /* Execution should not come here during normal operation */
