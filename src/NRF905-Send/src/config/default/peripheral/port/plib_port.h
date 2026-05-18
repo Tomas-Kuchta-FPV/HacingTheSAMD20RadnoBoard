@@ -65,6 +65,76 @@
 // *****************************************************************************
 // *****************************************************************************
 
+/*** Macros for NRF_MOSI pin ***/
+#define NRF_MOSI_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 8U)) & 0x01U)
+#define NRF_MOSI_PIN                  PORT_PIN_PB08
+
+/*** Macros for NRF_SCLK pin ***/
+#define NRF_SCLK_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 9U)) & 0x01U)
+#define NRF_SCLK_PIN                  PORT_PIN_PB09
+
+/*** Macros for NRF_CSN pin ***/
+#define NRF_CSN_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 10U)) & 0x01U)
+#define NRF_CSN_PIN                  PORT_PIN_PB10
+
+/*** Macros for NRF_MISO pin ***/
+#define NRF_MISO_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 11U)) & 0x01U)
+#define NRF_MISO_PIN                  PORT_PIN_PB11
+
+/*** Macros for NRF_DR pin ***/
+#define NRF_DR_Set()               (PORT_REGS->GROUP[0].PORT_OUTSET = ((uint32_t)1U << 16U))
+#define NRF_DR_Clear()             (PORT_REGS->GROUP[0].PORT_OUTCLR = ((uint32_t)1U << 16U))
+#define NRF_DR_Toggle()            (PORT_REGS->GROUP[0].PORT_OUTTGL = ((uint32_t)1U << 16U))
+#define NRF_DR_OutputEnable()      (PORT_REGS->GROUP[0].PORT_DIRSET = ((uint32_t)1U << 16U))
+#define NRF_DR_InputEnable()       (PORT_REGS->GROUP[0].PORT_DIRCLR = ((uint32_t)1U << 16U))
+#define NRF_DR_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 16U)) & 0x01U)
+#define NRF_DR_PIN                  PORT_PIN_PA16
+
+/*** Macros for NRF_AM pin ***/
+#define NRF_AM_Set()               (PORT_REGS->GROUP[0].PORT_OUTSET = ((uint32_t)1U << 17U))
+#define NRF_AM_Clear()             (PORT_REGS->GROUP[0].PORT_OUTCLR = ((uint32_t)1U << 17U))
+#define NRF_AM_Toggle()            (PORT_REGS->GROUP[0].PORT_OUTTGL = ((uint32_t)1U << 17U))
+#define NRF_AM_OutputEnable()      (PORT_REGS->GROUP[0].PORT_DIRSET = ((uint32_t)1U << 17U))
+#define NRF_AM_InputEnable()       (PORT_REGS->GROUP[0].PORT_DIRCLR = ((uint32_t)1U << 17U))
+#define NRF_AM_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 17U)) & 0x01U)
+#define NRF_AM_PIN                  PORT_PIN_PA17
+
+/*** Macros for NRF_CD pin ***/
+#define NRF_CD_Set()               (PORT_REGS->GROUP[0].PORT_OUTSET = ((uint32_t)1U << 18U))
+#define NRF_CD_Clear()             (PORT_REGS->GROUP[0].PORT_OUTCLR = ((uint32_t)1U << 18U))
+#define NRF_CD_Toggle()            (PORT_REGS->GROUP[0].PORT_OUTTGL = ((uint32_t)1U << 18U))
+#define NRF_CD_OutputEnable()      (PORT_REGS->GROUP[0].PORT_DIRSET = ((uint32_t)1U << 18U))
+#define NRF_CD_InputEnable()       (PORT_REGS->GROUP[0].PORT_DIRCLR = ((uint32_t)1U << 18U))
+#define NRF_CD_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 18U)) & 0x01U)
+#define NRF_CD_PIN                  PORT_PIN_PA18
+
+/*** Macros for NRF_PWR_UP pin ***/
+#define NRF_PWR_UP_Set()               (PORT_REGS->GROUP[0].PORT_OUTSET = ((uint32_t)1U << 19U))
+#define NRF_PWR_UP_Clear()             (PORT_REGS->GROUP[0].PORT_OUTCLR = ((uint32_t)1U << 19U))
+#define NRF_PWR_UP_Toggle()            (PORT_REGS->GROUP[0].PORT_OUTTGL = ((uint32_t)1U << 19U))
+#define NRF_PWR_UP_OutputEnable()      (PORT_REGS->GROUP[0].PORT_DIRSET = ((uint32_t)1U << 19U))
+#define NRF_PWR_UP_InputEnable()       (PORT_REGS->GROUP[0].PORT_DIRCLR = ((uint32_t)1U << 19U))
+#define NRF_PWR_UP_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 19U)) & 0x01U)
+#define NRF_PWR_UP_PIN                  PORT_PIN_PA19
+
+/*** Macros for NRF_TRX_CE pin ***/
+#define NRF_TRX_CE_Set()               (PORT_REGS->GROUP[0].PORT_OUTSET = ((uint32_t)1U << 20U))
+#define NRF_TRX_CE_Clear()             (PORT_REGS->GROUP[0].PORT_OUTCLR = ((uint32_t)1U << 20U))
+#define NRF_TRX_CE_Toggle()            (PORT_REGS->GROUP[0].PORT_OUTTGL = ((uint32_t)1U << 20U))
+#define NRF_TRX_CE_OutputEnable()      (PORT_REGS->GROUP[0].PORT_DIRSET = ((uint32_t)1U << 20U))
+#define NRF_TRX_CE_InputEnable()       (PORT_REGS->GROUP[0].PORT_DIRCLR = ((uint32_t)1U << 20U))
+#define NRF_TRX_CE_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 20U)) & 0x01U)
+#define NRF_TRX_CE_PIN                  PORT_PIN_PA20
+
+/*** Macros for NRF_TX_EN pin ***/
+#define NRF_TX_EN_Set()               (PORT_REGS->GROUP[0].PORT_OUTSET = ((uint32_t)1U << 21U))
+#define NRF_TX_EN_Clear()             (PORT_REGS->GROUP[0].PORT_OUTCLR = ((uint32_t)1U << 21U))
+#define NRF_TX_EN_Toggle()            (PORT_REGS->GROUP[0].PORT_OUTTGL = ((uint32_t)1U << 21U))
+#define NRF_TX_EN_OutputEnable()      (PORT_REGS->GROUP[0].PORT_DIRSET = ((uint32_t)1U << 21U))
+#define NRF_TX_EN_InputEnable()       (PORT_REGS->GROUP[0].PORT_DIRCLR = ((uint32_t)1U << 21U))
+#define NRF_TX_EN_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 21U)) & 0x01U)
+#define NRF_TX_EN_PIN                  PORT_PIN_PA21
+
 /*** Macros for LED pin ***/
 #define LED_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = ((uint32_t)1U << 22U))
 #define LED_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = ((uint32_t)1U << 22U))

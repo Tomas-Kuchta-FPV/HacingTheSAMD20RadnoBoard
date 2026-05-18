@@ -125,10 +125,10 @@
                      projectFiles="true">
         <logicalFolder name="components" displayName="components" projectFiles="true">
           <itemPath>HTSAMD20RB-Blinky_default/components/evsys.yml</itemPath>
-          <itemPath>HTSAMD20RB-Blinky_default/components/dfp.yml</itemPath>
-          <itemPath>HTSAMD20RB-Blinky_default/components/nvmctrl.yml</itemPath>
           <itemPath>HTSAMD20RB-Blinky_default/components/cmsis.yml</itemPath>
           <itemPath>HTSAMD20RB-Blinky_default/components/core.yml</itemPath>
+          <itemPath>HTSAMD20RB-Blinky_default/components/nvmctrl.yml</itemPath>
+          <itemPath>HTSAMD20RB-Blinky_default/components/dfp.yml</itemPath>
         </logicalFolder>
         <itemPath>HTSAMD20RB-Blinky_default/mcc-config.mc4</itemPath>
       </logicalFolder>
