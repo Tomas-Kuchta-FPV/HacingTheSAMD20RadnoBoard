@@ -27,6 +27,37 @@
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "definitions.h"                // SYS function prototypes
 
+// ************ constants ************
+const int ADDRES = {0xff, 0xff, 0xff, 0xff};
+const int OUTPUT_POWER = 0; //0-3
+const int OUTPUT_FREQUENCY = 0; //0-3
+
+void InitNRF () {
+    // Setup for programming
+    NRFPowerDown();
+    // Set address and AUTO_RETRAN
+    NRF_CSN_Set();
+    
+}
+
+void NRFPowerDown () {
+    NRF_PWR_UP_Clear();
+    NRF_TRX_CE_Clear();
+    NRF_TX_EN_Clear();
+   
+}
+
+void  NRFWakeUp(){
+    //Power Up for Send
+    NRF_PWR_UP_Set();
+    NRF_TRX_CE_Clear();
+    NRF_TX_EN_Set();
+}
+
+void SendKey ( int n ){
+    // Flow: sleep>interupt>sendinfo>repeat
+    // sendinfo = NRFWakeUp>SPIBufferData4Send>Send 'em
+}
 
 // *****************************************************************************
 // *****************************************************************************
@@ -38,6 +69,7 @@ int main ( void )
 {
     /* Initialize all modules */
     SYS_Initialize ( NULL );
+    SERCOM4_SPI_Initialize();
 
     while ( true )
     {

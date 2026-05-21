@@ -74,6 +74,11 @@
 #define NRF_SCLK_PIN                  PORT_PIN_PB09
 
 /*** Macros for NRF_CSN pin ***/
+#define NRF_CSN_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = ((uint32_t)1U << 10U))
+#define NRF_CSN_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = ((uint32_t)1U << 10U))
+#define NRF_CSN_Toggle()            (PORT_REGS->GROUP[1].PORT_OUTTGL = ((uint32_t)1U << 10U))
+#define NRF_CSN_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = ((uint32_t)1U << 10U))
+#define NRF_CSN_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = ((uint32_t)1U << 10U))
 #define NRF_CSN_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 10U)) & 0x01U)
 #define NRF_CSN_PIN                  PORT_PIN_PB10
 

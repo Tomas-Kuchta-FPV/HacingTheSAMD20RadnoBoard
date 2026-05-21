@@ -880,7 +880,7 @@ data:
       children:
       - children:
         - attributes:
-            value: SERCOM4_PAD2
+            value: GPIO
           type: User
         type: Values
       type: String
@@ -891,7 +891,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0x3'
+            value: '0x0'
           type: Dynamic
         type: Values
       type: String
@@ -912,7 +912,7 @@ data:
       children:
       - children:
         - attributes:
-            value: 'True'
+            value: ''
           type: User
         type: Values
       type: String
@@ -933,7 +933,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0x33'
+            value: '0x30'
           type: Dynamic
         type: Values
       type: String
@@ -954,7 +954,7 @@ data:
       children:
       - children:
         - attributes:
-            value: D
+            value: GPIO
           type: User
         type: Values
       type: String
@@ -1544,6 +1544,27 @@ data:
             id: sercom4
             value: SERCOM4_SPI_InterruptHandler
           type: Dynamic
+        type: Values
+      type: String
+    PORT_GROUP_1_OUT:
+      attributes:
+        id: PORT_GROUP_1_OUT
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0x400'
+          type: Dynamic
+        type: Values
+      type: String
+    PIN_19_LAT:
+      attributes:
+        id: PIN_19_LAT
+      children:
+      - children:
+        - attributes:
+            value: High
+          type: User
         type: Values
       type: String
   userData:

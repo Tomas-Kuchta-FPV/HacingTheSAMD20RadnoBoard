@@ -13,7 +13,7 @@ Pin Number,Pin ID,Custom Name,Function,Mode, Direction,Latch,Pull Up,Pull Down,D
 14,PA09,,Available,,,,,,NORMAL
 15,PA10,,Available,,,,,,NORMAL
 16,PA11,,Available,,,,,,NORMAL
-19,PB10,NRF_CSN,SERCOM4_PAD2,Digital,In/Out,Low,,,NORMAL
+19,PB10,NRF_CSN,GPIO,Digital,Out,High,,,NORMAL
 20,PB11,NRF_MISO,SERCOM4_PAD3,Digital,In/Out,Low,,,NORMAL
 21,PA12,,Available,,,,,,NORMAL
 22,PA13,,Available,,,,,,NORMAL
