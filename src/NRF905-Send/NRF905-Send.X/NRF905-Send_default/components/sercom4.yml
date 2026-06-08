@@ -290,4 +290,22 @@ data:
           type: Dynamic
         type: Values
       type: Boolean
+    SPI_BAUD_RATE:
+      attributes:
+        id: SPI_BAUD_RATE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '1000000'
+          type: User
+        type: Values
+      type: Integer
   userData: {}

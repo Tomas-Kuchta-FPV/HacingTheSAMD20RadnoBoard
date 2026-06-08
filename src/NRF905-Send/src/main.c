@@ -33,12 +33,18 @@ static const uint8_t OUTPUT_FREQUENCY = 0;   // 0-3
 // ============================================================================
 // NRF905 SPI HELPERS
 // ============================================================================
-static uint8_t nrf905_spi_transfer(uint8_t data) {
+static void nrf905_select(void) {
     NRF_CSN_Clear();
+}
+
+static void nrf905_deselect(void) {
+    NRF_CSN_Set();
+}
+
+static uint8_t nrf905_spi_transfer(uint8_t data) {
     uint8_t rxData = 0;
     SERCOM4_SPI_Write(&data, 1);
     SERCOM4_SPI_Read(&rxData, 1);
-    NRF_CSN_Set();
     return rxData;
 }
 
@@ -58,16 +64,19 @@ static void nrf905_write_tx_address(const uint8_t *address) {
     for (uint8_t i = 0; i < 4; i++) {
         nrf905_spi_transfer(address[i]);
     }
+    nrf905_deselect();
 }
 
 static void nrf905_write_tx_payload(uint8_t data) {
     uint8_t payload[NRF905_PAYLOAD_SIZE] = { 0 };
     payload[0] = data;
     
+    nrf905_select();
     nrf905_spi_transfer(0x20);  // TX payload write command
     for (uint8_t i = 0; i < NRF905_PAYLOAD_SIZE; i++) {
         nrf905_spi_transfer(payload[i]);
     }
+    nrf905_deselect();
 }
 
 static void nrf905_start_transmit(void) {
@@ -79,25 +88,26 @@ static void nrf905_start_transmit(void) {
 }
 
 static void nrf905_init(void) {
-    // Configure pins as outputs
+    /* 
+    // Configure pins - clanker moment: these should be set as outputs and initialized to default states
     NRF_CSN_OutputEnable();
     NRF_TX_EN_OutputEnable();
     NRF_TRX_CE_OutputEnable();
     NRF_PWR_UP_OutputEnable();
+    */
     
-    // Initialize pins to safe state
+    // Initialize pins
     NRF_CSN_Set();
     NRF_TX_EN_Clear();
     NRF_TRX_CE_Clear();
     NRF_PWR_UP_Clear();
     
-    // Power up module
+    // Power up
     NRF_PWR_UP_Set();
     SYSTICK_DelayMs(10);
     
     // Configure TX address
     nrf905_write_tx_address(NRF_ADDRESS);
-    
     // Configure power and frequency
     nrf905_write_config();
 }
@@ -110,14 +120,6 @@ static void send_button_index(uint8_t button_index) {
     nrf905_start_transmit();
 }
 
-// ============================================================================
-// BUTTON READING
-// ============================================================================
-// TODO: Define button pins per your hardware. Example:
-// #define BTN_0_Get()  (BTN_0 macro from plib_port.h)
-// #define BTN_1_Get()  (BTN_1 macro from plib_port.h)
-// #define BTN_2_Get()  (BTN_2 macro from plib_port.h)
-// #define BTN_3_Get()  (BTN_3 macro from plib_port.h)
 
 static uint8_t read_button_pressed(void) {
     // Check which button is pressed (active low assumed)
@@ -146,11 +148,21 @@ int main(void) {
 
     uint8_t last_button = 0xFF;
     uint32_t button_hold_time = 0;
-
+    
+    LED_Set();
+    SYSTICK_DelayMs(500);
+    LED_Clear();
+    SYSTICK_DelayMs(500);
+    LED_Set();
+    SYSTICK_DelayMs(500);
+    LED_Clear();
+    SYSTICK_DelayMs(100);
+    
     while (true) {
         SYS_Tasks();
         
-        uint8_t current_button = read_button_pressed();
+        //uint8_t current_button = read_button_pressed();
+        uint8_t current_button = 0;
         
         if (current_button != 0xFF) {
             // Button is pressed
