@@ -9,10 +9,10 @@ Pin Number,Pin ID,Custom Name,Function,Mode, Direction,Latch,Pull Up,Pull Down,D
 10,PA05,,Available,,,,,,NORMAL
 11,PA06,,Available,,,,,,NORMAL
 12,PA07,,Available,,,,,,NORMAL
-13,PA08,,Available,,,,,,NORMAL
-14,PA09,,Available,,,,,,NORMAL
-15,PA10,,Available,,,,,,NORMAL
-16,PA11,,Available,,,,,,NORMAL
+13,PA08,BTN_4,GPIO,Digital,In,n/a,Yes,No,NORMAL
+14,PA09,BTN_2,GPIO,Digital,In,n/a,Yes,No,NORMAL
+15,PA10,BTN_1,GPIO,Digital,In,n/a,Yes,No,NORMAL
+16,PA11,BTN_3,GPIO,Digital,In,n/a,Yes,No,NORMAL
 19,PB10,NRF_CSN,GPIO,Digital,Out,High,,,NORMAL
 20,PB11,NRF_MISO,SERCOM4_PAD3,Digital,In/Out,Low,,,NORMAL
 21,PA12,,Available,,,,,,NORMAL

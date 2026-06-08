@@ -123,14 +123,12 @@ static void send_button_index(uint8_t button_index) {
 
 static uint8_t read_button_pressed(void) {
     // Check which button is pressed (active low assumed)
-    /*
-    if (!BTN_0_Get()) return 0;
+    
     if (!BTN_1_Get()) return 1;
     if (!BTN_2_Get()) return 2;
     if (!BTN_3_Get()) return 3;
+    if (!BTN_4_Get()) return 4;
     return 0xFF;  // No button pressed
-    */
-    return 0;  // Placeholder until button pins are defined
 }
 
 // *****************************************************************************
@@ -141,7 +139,7 @@ int main(void) {
     /* Initialize system */
     SYS_Initialize(NULL);
     SYSTICK_TimerStart();
-    SERCOM4_SPI_Initialize();
+    //SERCOM4_SPI_Initialize();
 
     /* Initialize NRF905 */
     nrf905_init();
@@ -161,8 +159,7 @@ int main(void) {
     while (true) {
         SYS_Tasks();
         
-        //uint8_t current_button = read_button_pressed();
-        uint8_t current_button = 0;
+        uint8_t current_button = read_button_pressed();
         
         if (current_button != 0xFF) {
             // Button is pressed
