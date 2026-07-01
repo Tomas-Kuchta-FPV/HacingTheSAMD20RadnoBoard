@@ -1,12 +1,35 @@
 > For education purpuses only
 > There is no real hacking! Only Observing and ReverseEngineering a PCB I bought.
 
+So I wanted to do a bit of reverse ingeneering that's why this repo exist.  
+![RE](/REtest.jpg)  
+It was pretty fun and you can read more about the journey in JOURNAL.md  
+
+It was a great learning experience and I've sharpened my skils or Revese engineering, which is even needed for profesional work as an engineer as you need to quicly understand a given probelem.  
+
+About the board:  
+This board was found on some flee market so I don't think you would be able to replicate it unforunately, it would be better to RE some more widely availible board - maybe one day :). Althought this repo might help you learning RE! and understanding my thought process.   
+
+The journal might be unclear as I'm not a native english speaker and I didn't feel like withing anything lol.  
+
+
 ## Reverse Engineering
 RE can be found in `ReverseEngineering.md`
 
 ## Building on linux (Specifically Fedora 43 KDE)
 
-### With VS code and MPLAB extension
+### Using MPLAB IDE
+
+1. Install [JTAGprobe](https://github.com/lonehog/JTAGprobe) on yout raspberry pi pico
+1. Open MPLAB
+2. Open the project.x
+2. Install OpenOCD with `dnf install openocd`
+3. Wire it up as decribed in ReverseEngineering.md
+4. Hit compile. The little hammer or ctr+shift+b take not on the output `.elf`/`.hex` file
+5. Flash! refer to *TOOLs Usage.md* Basicaly it's `openocd -f interface/cmsis-dap.cfg -f target/at91samdXX.cfg -c "program {link to binary} verify reset exit"`
+6. And that's it
+
+### With VS code and MPLAB extension - depreciated
 
 1. Setup Microchips [MPLAB into VS code](https://www.microchip.com/en-us/tools-resources/develop/mplab-tools-vs-code)
 2. Open or Create a new project
@@ -55,7 +78,8 @@ shutdown command invoked
 ## Used tools
 ### HW
 Raspberry pi pico (rp2040) (Also a rpi2 can be used)
-Jumper wires
+Jumper wires  
+Random board from flee market.
 ### SW
 [JTAGprobe](https://github.com/lonehog/JTAGprobe)
 [MPLAB into VS code](https://www.microchip.com/en-us/tools-resources/develop/mplab-tools-vs-code)

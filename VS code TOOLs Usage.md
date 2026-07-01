@@ -1,4 +1,4 @@
-# Tools usage
+# Tools usage - depreciated
 ## Upload
 1. Navigate to the root of the folder containing `main.cpp`
 2. Build with the hammer icon
